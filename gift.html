@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css" rel="stylesheet" />
+  <title>给方宝宝的小礼物🎁</title>
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background: url('bg.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      width: 450px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      text-align: center;
+      color: white;
+      font-family: 'Century Gothic', sans-serif;
+    }
+
+    .box-img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+    }
+
+    .box h1 {
+      font-size: 40px;
+      letter-spacing: 4px;
+      font-weight: 100;
+    }
+
+    .box h5 {
+      font-size: 20px;
+      letter-spacing: 3px;
+      font-weight: 100;
+    }
+
+    .box p {
+      text-align: justify;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box li {
+      display: inline-block;
+      margin: 6px;
+      list-style: none;
+    }
+
+    .box li a {
+      color: white;
+      text-decoration: none;
+      font-size: 60px;
+      transition: all ease-in-out 250ms;
+    }
+
+    .box li a:hover {
+      color: #b9b9b9;
+    }
+  </style>
+</head>
+
+<body>
+  <!--礼物-->
+  <div class="box">
+    <img src="gift.jpg" alt="" class="box-img" />
+    <h1>💞方宝宝</h1>
+    <h5>1 Corinthians 3:4-8</h5>
+    <p>
+      &emsp;&emsp;哈哈哈哈哈其他的啥都不说了
+      <br>
+      &emsp;&emsp;矫情嘿嘿，超级好喜欢你啊 ❗
+      <br>
+      &emsp;&emsp;30天说长不长，说短不短，不知道你感觉如何呀😜
+      <br>
+      &emsp;&emsp;谢谢你，让我进入了你的世界，HELLO WOLRD
+      <br>
+      &emsp;&emsp;也欢迎你来我的世界逛逛，这个小礼物还喜欢嘛hh
+      <br>
+      &emsp;&emsp;未来，祈求神看顾，在祂的里面，爱是永不止息💗
+      <br>
+      &emsp;&emsp;我会继续努力，为着眼前的，未来的以及过去的
+      <br>
+      &emsp;&emsp;我们一起加油吧↖(^ω^)↗
+      <br>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2021.03.31
+      <br>
+      <br>
+      <br>
+      <!--这里放音乐哦 -->
+      <audio id='audio' src='love.mp3' loop></audio>
+      <button id='status' visible="false" onclick='triggerBgMusic()'>播放按钮</button>
+    </p>
+  </div>
+</body>
+<script>
+  //----------背景音乐页面初始化------------  用于解决safari和Chrome自动播放问题 
+  //方案来源于https://blog.csdn.net/joyce_lcy/article/details/79347383?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
+  var audio = document.getElementById('audio');
+  if (sessionStorage.bgmusic == 'pause') {
+    playBgMusic(false);
+  } else {
+    playBgMusic(true);
+    //----------处理自动播放------------
+    //--创建页面监听，等待微信端页面加载完毕 触发音频播放
+    document.addEventListener('DOMContentLoaded', function () {
+      function audioAutoPlay() {
+        playBgMusic(true);
+        document.addEventListener("WeixinJSBridgeReady", function () {
+          playBgMusic(true);
+        }, false);
+      }
+      audioAutoPlay();
+    });
+    //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+    function audioAutoPlay() {
+      playBgMusic(true);
+      document.removeEventListener('touchstart', audioAutoPlay);
+    }
+    document.addEventListener('touchstart', audioAutoPlay);
+  }
+  //----------处理页面激活------------
+  var hiddenProperty = 'hidden' in document ? 'hidden' :
+    'webkitHidden' in document ? 'webkitHidden' :
+    'mozHidden' in document ? 'mozHidden' :
+    null;
+  var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+  var onVisibilityChange = function () {
+    if (!document[hiddenProperty]) {
+      if (!sessionStorage.bgmusic || sessionStorage.bgmusic == 'play') {
+        audio.play();
+      }
+    } else {
+      audio.pause();
+    }
+  }
+  document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+  //---------背景音乐开关----------
+  function triggerBgMusic() {
+    if (!sessionStorage.bgmusic || sessionStorage.bgmusic == 'play') {
+      playBgMusic(false);
+    } else {
+      playBgMusic(true);
+    }
+  }
+  //---------音乐播放和暂停----------
+  function playBgMusic(val) {
+    if (val) {
+      audio.play();
+      sessionStorage.bgmusic = 'play';
+      document.getElementById('status').innerHTML = 'Music ~停 🈲';
+    } else {
+      audio.pause();
+      sessionStorage.bgmusic = 'pause';
+      document.getElementById('status').innerHTML = '音乐 ~走起 🈶';
+    }
+  }
+</script>
+
+</html>

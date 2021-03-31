@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>给方小姐的一封💌</title>
+  <style>
+    .timer {
+      font-size: 120%;
+      line-height: 1.0;
+      margin: 1em 0;
+    }
+
+    .timer b {
+      color: rgb(253, 99, 125);
+    }
+  </style>
+  <link type="text/css" rel="stylesheet" href="./css/default.css">
+  <script type="text/javascript" src="./js/jquery.js"></script>
+  <script type="text/javascript" src="./js/jscex.js"></script>
+  <script type="text/javascript" src="./js/jscex-parser.js"></script>
+  <script type="text/javascript" src="./js/jscex-jit.js"></script>
+  <script type="text/javascript" src="./js/jscex-builderbase.js"></script>
+  <script type="text/javascript" src="./js/jscex-async.js"></script>
+  <script type="text/javascript" src="./js/jscex-async-powerpack.js"></script>
+  <script type="text/javascript" src="./js/functions.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./js/love.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <!--这里放音乐哦 -->
+  <audio id='audio' src='http://go.163.com/2018/0209/mengniu/audio/bgm.mp3' loop></audio>
+  <button id='status' onclick='triggerBgMusic()'>播放按钮</button>
+  <br>
+  <span class="say">📱记得向左滑动屏幕哦</span>
+  <br>
+  <span class="say">🎁亲爱的最后有个小礼物哦</span>
+  <!--定时跳转-->
+  <meta http-equiv="refresh" content="72;url=gift.html">
+  <!--信件打字机 -->
+  <div id="main">
+    <div id="error">亲爱哒，您的浏览器无法显示呐，麻烦请换成电脑端口的谷歌，火狐，360浏览器。么么哒！(づ￣ 3￣)づ！</div>
+    <div id="wrap">
+      <div id="text">
+        <div id="code">
+          <span class="say"> Dear 方小姐 💞</span><br>
+          <span class="say"> </span><br>
+          <span class="say"> &emsp;讲个故事吧。</span><br>
+          <span class="say"> </span>&emsp;从前，有一个小男孩。他，自命不凡<br>
+          <span class="say"> </span>&emsp;想亲眼看遍这个世界，但换来的却是步履蹒跚<br>
+          <span class="say"> </span>&emsp;幸运的是，小男孩真实得触摸到了祂的爱<br>
+          <span class="say"> </span>&emsp;从耳濡目染的信仰，到自己的祂💎<br>
+          <span class="say"> </span><br>
+          <span class="say"> </span>&emsp;就这样。<br>
+          <span class="say"> </span>&emsp;小男孩在祂的雕琢下，磕磕绊绊得成长<br>
+          <span class="say"> </span>&emsp;有过很多脚下的现实以及憧憬的未来 —— <br>
+          <span class="say"> </span>&emsp;等候，警醒，接受，直面...<br>
+          <span class="say"> </span>&emsp;有一刻，超越邂逅，穿过重逢，遇到了她⭐<br>
+          <span class="say"> </span><br>
+          <span class="say"> </span>&emsp;那一夜，彼此迈出<br>
+          <span class="say"> </span>&emsp;在祂的中间见证，涌现新的可能<br>
+          <span class="say"> </span>&emsp;宁静，真诚，幸福，而且真实<br>
+          <span class="say"> </span>&emsp;爱能遮盖许多的罪💖<br>
+          <span class="say"> </span><br>
+          <span class="say"> &emsp;🌠2002 TQ97..🌠</span><br>
+          <span class="say"> </span><br>
+          <span class="say"><span class="space"></span>好喜欢 & 一直在努力的邹白蛋 :) </span>
+        </div>
+      </div>
+      <!--倒计时信息-->
+      <div id="clock-box">
+        <span class="STYLE1"> <span class="STYLE1">💕 IN THE GRACE OF GOD MORE THAN</span>
+          <div class="timer">
+            <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
+          </div>
+      </div>
+      <canvas id="canvas" width="1100" height="680"></canvas>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      var canvas = $('#canvas');
+
+      if (!canvas[0].getContext) {
+        $("#error").show();
+        return false;
+      }
+
+      var width = canvas.width();
+      var height = canvas.height();
+
+      canvas.attr("width", width);
+      canvas.attr("height", height);
+
+      var opts = {
+        seed: {
+          x: width / 2 - 20,
+          color: "rgb(190, 26, 37)",
+          scale: 2
+        },
+        branch: [
+          [535, 680, 570, 250, 500, 200, 30, 100, [
+            [540, 500, 455, 417, 340, 400, 13, 100, [
+              [450, 435, 434, 430, 394, 395, 2, 40]
+            ]],
+            [550, 445, 600, 356, 680, 345, 12, 100, [
+              [578, 400, 648, 409, 661, 426, 3, 80]
+            ]],
+            [539, 281, 537, 248, 534, 217, 3, 40],
+            [546, 397, 413, 247, 328, 244, 9, 80, [
+              [427, 286, 383, 253, 371, 205, 2, 40],
+              [498, 345, 435, 315, 395, 330, 4, 60]
+            ]],
+            [546, 357, 608, 252, 678, 221, 6, 100, [
+              [590, 293, 646, 277, 648, 271, 2, 80]
+            ]]
+          ]]
+        ],
+        bloom: {
+          num: 700,
+          width: 1080,
+          height: 650,
+        },
+        footer: {
+          width: 1200,
+          height: 5,
+          speed: 10,
+        }
+      }
+
+      var tree = new Tree(canvas[0], width, height, opts);
+      var seed = tree.seed;
+      var foot = tree.footer;
+      var hold = 1;
+
+      canvas.click(function (e) {
+        var offset = canvas.offset(),
+          x, y;
+        x = e.pageX - offset.left;
+        y = e.pageY - offset.top;
+        if (seed.hover(x, y)) {
+          hold = 0;
+          canvas.unbind("click");
+          canvas.unbind("mousemove");
+          canvas.removeClass('hand');
+        }
+      }).mousemove(function (e) {
+        var offset = canvas.offset(),
+          x, y;
+        x = e.pageX - offset.left;
+        y = e.pageY - offset.top;
+        canvas.toggleClass('hand', seed.hover(x, y));
+      });
+
+      var seedAnimate = eval(Jscex.compile("async", function () {
+        seed.draw();
+        while (hold) {
+          $await(Jscex.Async.sleep(10));
+        }
+        while (seed.canScale()) {
+          seed.scale(0.95);
+          $await(Jscex.Async.sleep(10));
+        }
+        while (seed.canMove()) {
+          seed.move(0, 2);
+          foot.draw();
+          $await(Jscex.Async.sleep(10));
+        }
+      }));
+
+      var growAnimate = eval(Jscex.compile("async", function () {
+        do {
+          tree.grow();
+          $await(Jscex.Async.sleep(10));
+        } while (tree.canGrow());
+      }));
+
+      var flowAnimate = eval(Jscex.compile("async", function () {
+        do {
+          tree.flower(2);
+          $await(Jscex.Async.sleep(10));
+        } while (tree.canFlower());
+      }));
+
+      var moveAnimate = eval(Jscex.compile("async", function () {
+        tree.snapshot("p1", 240, 0, 610, 680);
+        while (tree.move("p1", 500, 0)) {
+          foot.draw();
+          $await(Jscex.Async.sleep(10));
+        }
+        foot.draw();
+        tree.snapshot("p2", 500, 0, 610, 680);
+
+        // 会有闪烁不得意这样做, (＞﹏＜)
+        canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+        canvas.css("background", "#ffe");
+        $await(Jscex.Async.sleep(300));
+        canvas.css("background", "none");
+      }));
+
+      var jumpAnimate = eval(Jscex.compile("async", function () {
+        var ctx = tree.ctx;
+        while (true) {
+          tree.ctx.clearRect(0, 0, width, height);
+          tree.jump();
+          foot.draw();
+          $await(Jscex.Async.sleep(50));
+        }
+      }));
+
+      var textAnimate = eval(Jscex.compile("async", function () {
+        var together = new Date();
+        together.setFullYear(2021, 03, 28);
+        together.setHours(12);
+        together.setMinutes(0);
+        together.setSeconds(0);
+        together.setMilliseconds(0);
+
+        $("#code").show().typewriter();
+        $("#clock-box").fadeIn(500);
+        while (true) {
+          timeElapse(together);
+          $await(Jscex.Async.sleep(1000));
+        }
+      }));
+
+      var runAsync = eval(Jscex.compile("async", function () {
+        $await(seedAnimate());
+        $await(growAnimate());
+        $await(flowAnimate());
+        $await(moveAnimate());
+
+        textAnimate().start();
+
+        $await(jumpAnimate());
+      }));
+
+      runAsync().start();
+    })();
+
+    //Js 时间替换
+    function timer() {
+      window.setTimeout("show_date_time()", 1000);
+      var start = new Date("2021-03-01 20:02:00").getTime(); // 2015.7.2
+      var t = new Date().getTime() - start;
+      var h = ~~(t / 1000 / 60 / 60 % 24);
+      if (h < 10) {
+        h = "0" + h;
+      }
+      var m = ~~(t / 1000 / 60 % 60);
+      if (m < 10) {
+        m = "0" + m;
+      }
+      var s = ~~(t / 1000 % 60);
+      if (s < 10) {
+        s = "0" + s;
+      }
+      document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+      document.getElementById('h').innerHTML = h;
+      document.getElementById('m').innerHTML = m;
+      document.getElementById('s').innerHTML = s;
+    }
+    timer();
+    setInterval(timer, 1000);
+
+
+    //----------背景音乐页面初始化------------  用于解决safari和Chrome自动播放问题 
+    //方案来源于https://blog.csdn.net/joyce_lcy/article/details/79347383?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
+    var audio = document.getElementById('audio');
+    if (sessionStorage.bgmusic == 'pause') {
+      playBgMusic(false);
+    } else {
+      playBgMusic(true);
+      //----------处理自动播放------------
+      //--创建页面监听，等待微信端页面加载完毕 触发音频播放
+      document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+          playBgMusic(true);
+          document.addEventListener("WeixinJSBridgeReady", function () {
+            playBgMusic(true);
+          }, false);
+        }
+        audioAutoPlay();
+      });
+      //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+      function audioAutoPlay() {
+        playBgMusic(true);
+        document.removeEventListener('touchstart', audioAutoPlay);
+      }
+      document.addEventListener('touchstart', audioAutoPlay);
+    }
+    //----------处理页面激活------------
+    var hiddenProperty = 'hidden' in document ? 'hidden' :
+      'webkitHidden' in document ? 'webkitHidden' :
+      'mozHidden' in document ? 'mozHidden' :
+      null;
+    var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+    var onVisibilityChange = function () {
+      if (!document[hiddenProperty]) {
+        if (!sessionStorage.bgmusic || sessionStorage.bgmusic == 'play') {
+          audio.play();
+        }
+      } else {
+        audio.pause();
+      }
+    }
+    document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+    //---------背景音乐开关----------
+    function triggerBgMusic() {
+      if (!sessionStorage.bgmusic || sessionStorage.bgmusic == 'play') {
+        playBgMusic(false);
+      } else {
+        playBgMusic(true);
+      }
+    }
+    //---------音乐播放和暂停----------
+    function playBgMusic(val) {
+      if (val) {
+        audio.play();
+        sessionStorage.bgmusic = 'play';
+        document.getElementById('status').innerHTML = 'Music ~停 🈲';
+      } else {
+        audio.pause();
+        sessionStorage.bgmusic = 'pause';
+        document.getElementById('status').innerHTML = '音乐 ~走起 🈶';
+      }
+    }
+  </script>
+</body>
+
+</html>

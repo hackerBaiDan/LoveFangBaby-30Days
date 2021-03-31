@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>让我来看看这是谁来了😜</title>
+
+  <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div class="materialContainer">
+    <div class="box">
+      <div class="title">对对暗号🔐</div>
+      <div class="input">
+        <label for="username">Who are you</label>
+        <input type="text" name="username" id="username">
+        <span class="spin"></span>
+      </div>
+      <div class="input">
+        <label for="password">Our anniversary</label>
+        <input type="password" name="password" id="password">
+        <span class="spin"></span>
+      </div>
+      <div class="button login">
+        <button onclick="login()">
+          <span>匹配暗号 🔓</span>
+          <i class="fa fa-check"></i>
+        </button>
+      </div>
+      <a href="javascript:" class="pass-forgot" onclick="forgot()">忘记暗号点这里😭</a>
+    </div>
+
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/index.js"></script>
+  <script>
+    function forgot() {
+      alert("愣着干啥 快来问我🐷");
+    }
+
+    function login() {
+      var username = document.getElementById("username");
+      var pass = document.getElementById("password");
+      if (username.value == "") {
+        alert("让我来看看你的名字叫什么😲");
+        username.focus();
+        return;
+      } else if (pass.value == "") {
+        alert("还记得我们的第一天吗😘");
+        return;
+      } else if ((pass.value == "20210301") && (username.value == "方梓华" || "Dora" || "dora" || "方小姐" || "方宝宝")) {
+        alert("验证成功✅ 叮咚 有一封信件");
+        window.location.href = "main.html";
+      } else {
+        alert("验证失败❎ 你是谁❓❓❓ ");
+        window.location.href = "Error_Lemon.html";
+        return;
+      }
+      return true;
+    }
+  </script>
+
+</body>
+
+</html>
